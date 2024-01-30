@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2024-01-08" view-index="0" gantt-divider-location="351" resource-divider-location="300" version="3.3.3300" locale="fr_FR">
+    <description/>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="200" order="0"/>
+        <field id="tpd4" name="Date de début" width="75" order="1"/>
+        <field id="tpd5" name="Date de fin" width="75" order="2"/>
+        <field id="tpd15" name="Notes" width="20" order="3"/>
+        <option id="taskLabelUp" value="name"/>
+        <option id="taskLabelDown" value="length"/>
+        <option id="taskLabelLeft" value=""/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="filter.dueTodayTasks" value="false"/>
+        <option id="filter.overdueTasks" value="false"/>
+        <option id="filter.inProgressTodayTasks" value="false"/>
+        <option id="color.recent"><![CDATA[#ff3333 #cc0033 #00ffff #ff00ff #0033ff #0066ff #e1e1e1 #ff00cc #99ffff #33ff00]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nom" width="210" order="0"/>
+        <field id="1" name="Rôle par défaut" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars base-id="fr">
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="true"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+        <date year="" month="1" date="1" type="HOLIDAY"><![CDATA[1er janvier]]></date>
+        <date year="" month="5" date="1" type="HOLIDAY"><![CDATA[1er mai]]></date>
+        <date year="" month="5" date="8" type="HOLIDAY"><![CDATA[8 mai]]></date>
+        <date year="" month="7" date="14" type="HOLIDAY"><![CDATA[14 juillet]]></date>
+        <date year="" month="8" date="15" type="HOLIDAY"><![CDATA[Assomption]]></date>
+        <date year="" month="11" date="1" type="HOLIDAY"><![CDATA[Toussaint]]></date>
+        <date year="" month="11" date="11" type="HOLIDAY"><![CDATA[11 novembre]]></date>
+        <date year="" month="12" date="25" type="HOLIDAY"><![CDATA[Jour de Noël]]></date>
+        <date year="2015" month="4" date="6" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2015" month="5" date="14" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2015" month="5" date="25" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+        <date year="2016" month="3" date="28" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2016" month="5" date="5" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2016" month="5" date="16" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+        <date year="2017" month="4" date="17" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2017" month="5" date="25" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2017" month="6" date="5" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+        <date year="2018" month="4" date="2" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2018" month="5" date="10" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2018" month="5" date="21" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+        <date year="2019" month="4" date="22" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2019" month="5" date="30" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2019" month="6" date="10" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+        <date year="2020" month="4" date="13" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2020" month="5" date="21" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2020" month="6" date="1" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+        <date year="2021" month="4" date="5" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2021" month="5" date="13" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2021" month="5" date="24" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+        <date year="2022" month="4" date="18" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2022" month="5" date="26" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2022" month="6" date="6" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+        <date year="2023" month="4" date="10" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2023" month="5" date="18" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2023" month="5" date="29" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+        <date year="2024" month="4" date="1" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2024" month="5" date="9" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2024" month="5" date="20" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+        <date year="2025" month="4" date="21" type="HOLIDAY"><![CDATA[Lundi de Pâques]]></date>
+        <date year="2025" month="5" date="29" type="HOLIDAY"><![CDATA[Ascension]]></date>
+        <date year="2025" month="6" date="9" type="HOLIDAY"><![CDATA[Lundi de Pentecôte]]></date>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" uid="4c976620781047fe958e40056106410b" name="Début du Projet" color="#3366ff" meeting="false" start="2024-01-19" duration="17" complete="0" thirdDate="2024-01-11" thirdDate-constraint="0" expand="false">
+            <depend id="1" type="2" difference="0" hardness="Strong"/>
+            <task id="16" uid="d43ac457a0b34074af2d28fb5cf9c232" name="Recherches / Conception des diagrammes / Installation" color="#99ffff" meeting="false" start="2024-01-19" duration="17" complete="0" thirdDate="2024-01-11" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="1" uid="17b88c2776c048c597178ba0ee3f459b" name="Première revue" color="#cc66ff" meeting="false" start="2024-02-05" duration="5" complete="1" thirdDate="2024-01-11" thirdDate-constraint="0" expand="true">
+            <depend id="2" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="2" uid="ddc318ea4d7d473a928e5c1a99dea407" name="Première vacances" color="#66ff66" meeting="false" start="2024-02-10" duration="16" complete="0" thirdDate="2024-01-26" thirdDate-constraint="0" expand="true">
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="5" uid="01c50a8b3f404012b4df52701d874631" name="Suite du Projet" color="#3366ff" meeting="false" start="2024-02-26" duration="14" complete="0" thirdDate="2024-02-10" thirdDate-constraint="0" expand="false">
+            <depend id="17" type="2" difference="0" hardness="Strong"/>
+            <task id="20" uid="9e5df30fd36a44fc88a5710f9152072f" name="Programmation des capteurs / Contrôle de la caméra / Interface QT" color="#00ffff" meeting="false" start="2024-02-26" duration="14" complete="0" thirdDate="2024-02-26" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="17" uid="393b66d96cdf4d77a876b5338139179d" name="Première revue notée" color="#ff00cc" meeting="false" start="2024-03-11" duration="5" complete="0" thirdDate="2024-02-12" thirdDate-constraint="0" expand="true">
+            <depend id="18" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="18" uid="f2000360a8d74d3d83ce23149ca24338" name="Suite du projet" color="#0033ff" meeting="false" start="2024-03-16" duration="20" complete="0" thirdDate="2024-02-26" thirdDate-constraint="0" expand="false">
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+            <task id="21" uid="b648509f6ae94839b5fd49ffbdb426cf" name="Application mobile / Déplacement du robot / Commander les moteurs" color="#00ffff" meeting="false" start="2024-03-16" duration="20" complete="0" thirdDate="2024-03-16" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="8" uid="3ac8b954cba246889062c44042f1cba8" name="Deuxième vacances" color="#66ff00" meeting="false" start="2024-04-06" duration="16" complete="0" thirdDate="2024-01-29" thirdDate-constraint="0" expand="true">
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="9" uid="e59cce06cf9b4db69ee2304b9db4633d" name="Deuxième revue" color="#cc66ff" meeting="false" start="2024-04-22" duration="5" complete="0" thirdDate="2024-01-22" thirdDate-constraint="0" expand="true">
+            <depend id="10" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="10" uid="0b263b07744644b999a00c2ce6ba195f" name="Suite du projet" color="#0066ff" meeting="false" start="2024-04-27" duration="13" complete="0" thirdDate="2024-02-05" thirdDate-constraint="0" expand="false">
+            <depend id="19" type="2" difference="0" hardness="Strong"/>
+            <task id="22" uid="c4ae341132ac43b2a11e34cda3b7c2e7" name="Liaison" color="#00ffff" meeting="false" start="2024-04-27" duration="13" complete="0" thirdDate="2024-02-19" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="19" uid="b4f0a028227d4b0b973bd6582b3e91d2" name="Deuxième revue notée" color="#ff00ff" meeting="false" start="2024-05-13" duration="5" complete="0" thirdDate="2024-05-06" thirdDate-constraint="0" expand="true">
+            <depend id="11" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="11" uid="64f85116329244f0a3604a186328c242" name="Troisième revue" color="#cc66ff" meeting="false" start="2024-05-18" duration="4" complete="0" thirdDate="2024-03-04" thirdDate-constraint="0" expand="true">
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="12" uid="c0973a3a359d422f97482d1540517e09" name="Finalisation du projet" color="#3366ff" meeting="false" start="2024-05-23" duration="5" complete="0" thirdDate="2024-03-18" thirdDate-constraint="0" expand="false">
+            <depend id="13" type="2" difference="0" hardness="Strong"/>
+            <task id="23" uid="8d34cd592507400bb354d49f35919f56" name="Finalisations des tâches / Vérification" color="#00ffff" meeting="false" start="2024-05-23" duration="5" complete="0" thirdDate="2024-02-26" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="13" uid="ad0218322f0646c0985b17a636d1aa06" name="Remise du projet" color="#ffff00" meeting="false" start="2024-05-28" duration="1" complete="0" thirdDate="2024-01-15" thirdDate-constraint="0" expand="true">
+            <depend id="15" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="15" uid="746be7962cfc423788526fe4a43ad33a" name="Soutenance finale" color="#ff3333" meeting="false" start="2024-05-29" duration="1" complete="0" thirdDate="2024-05-15" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Gabriel" function="3" contacts="" phone=""/>
+        <resource id="1" name="Sofiane" function="1" contacts="" phone=""/>
+        <resource id="2" name="Rayan" function="2" contacts="" phone=""/>
+    </resources>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles>
+        <role id="1" name="IHM QT"/>
+        <role id="2" name="Contrôle Robot / Capteurs"/>
+        <role id="3" name="Contrôle caméra / IHM Tablette"/>
+    </roles>
+</project>
