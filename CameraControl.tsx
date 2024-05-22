@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 
 type Direction = 'Avancer' | 'Reculer' | 'Gauche' | 'Droite';
 
@@ -41,8 +41,9 @@ const CameraControl = () => {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    position: 'absolute',
+    bottom: 50, // Ajuster la position verticale selon vos préférences
+    left: 80, // Ajuster la position horizontale selon vos préférences
   },
   row: {
     flexDirection: 'row',
