@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 
-type Direction = 'Monter' | 'Descendre' | 'Gauche' | 'Droite';
+type Direction = 'Monter' | 'Descendre' | 'Tourner à gauche' | 'Tourner Caméra droite';
 
 const CameraDirection = () => {
   const handleDirectionPress = (direction: Direction) => {
@@ -16,10 +16,10 @@ const CameraDirection = () => {
       </View>
       <View style={styles.row}>
         <View style={styles.triangleContainer}>
-          <TouchableOpacity onPress={() => handleDirectionPress('Gauche')} style={[styles.triangle, styles.triangleLeft]} />
+          <TouchableOpacity onPress={() => handleDirectionPress('Tourner Caméra gauche')} style={[styles.triangle, styles.triangleLeft]} />
         </View>
         <View style={styles.triangleContainer}>
-          <TouchableOpacity onPress={() => handleDirectionPress('Droite')} style={[styles.triangle, styles.triangleRight]} />
+          <TouchableOpacity onPress={() => handleDirectionPress('Tourner Caméra droite')} style={[styles.triangle, styles.triangleRight]} />
         </View>
       </View>
       <View style={styles.row}>
@@ -31,8 +31,9 @@ const CameraDirection = () => {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    position: 'absolute',
+    bottom: 50, // Ajuster la position verticale selon vos préférences
+    right: 340, // Ajuster la position horizontale selon vos préférences
   },
   row: {
     flexDirection: 'row',
@@ -79,28 +80,10 @@ const styles = StyleSheet.create({
     borderTopColor: 'transparent',
     borderBottomColor: 'transparent',
     width: 50, // Largeur fixe pour la flèche droite
-    marginLeft: 30, // Ajustement de la marge gauche
+    marginLeft: 60, // Ajustement de la marge gauche
   },
   triangleContainer: {
     width: 50, // Largeur fixe pour chaque conteneur de flèche
-  },
-  buttonContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  takePhotoButton: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: 'blue',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  innerCircle: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: 'white',
   },
 });
 
