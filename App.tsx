@@ -1,55 +1,160 @@
+// App.tsx
 import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import CustomDrawerContent from './CustomDrawerContent'; // Import du composant de contenu personnalisé du tiroir
-import Header from './Header'; // Import du composant Header
-import CameraScreen from './CameraScreen'; // Import du composant CameraScreen
+import {StyleSheet, View, Image, Text} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {NavigationContainer} from '@react-navigation/native';
+import {RouteProp} from '@react-navigation/native';
+import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
+import CameraInterface from './CameraInterface.tsx';
+import SettingsInterface from './SettingsInterface.tsx';
 
-const Drawer = createDrawerNavigator();
+// Import des images avec require
+const HomeIcon = require('./Home.png');
+const CameraIcon = require('./Camera.png');
+const GalleryIcon = require('./Galerie.png');
+const SettingsIcon = require('./Settings.png');
+const RobotImage = require('./Robot.png'); // Ajout de l'image Robot
 
-// Composant pour l'écran principal de l'application
-const MainScreen = () => (
-  <View style={styles.container}>
-    <Text style={styles.text}>Robot de Reconnaissance</Text>
-    <Image source={require('./robot.png')} style={styles.image} />
+// Définition des composants pour chaque écran
+const HomeScreen = () => (
+  <View style={styles.homeContainer}>
+    <Text style={styles.headerText}>Robot de reconnaissance</Text>
+    <Image source={RobotImage} style={styles.headerImage} />
   </View>
 );
 
-// Styles pour le composant MainScreen
+const CameraScreen = () => (
+  <View style={styles.screenContainer}>
+    <CameraInterface />
+  </View>
+);
+const GalleryScreen = () => (
+  <View style={styles.screenContainer}>
+    <Text>Vos Photos</Text>
+  </View>
+);
+
+const SettingsScreen = () => {
+  return (
+    <View style={styles.screenContainer}>
+      <SettingsInterface />
+    </View>
+  );
+};
+
+type TabBarIconProps = {
+  focused: boolean;
+  color: string;
+  size: number;
+};
+
+type ScreenOptionsProps = {
+  route: RouteProp<Record<string, object | undefined>, string>;
+};
+
+const screenOptions = ({ route }: ScreenOptionsProps): BottomTabNavigationOptions => ({
+  tabBarIcon: ({focused}: TabBarIconProps) => {
+    let iconName;
+
+    if (route.name === 'Menu') {
+      iconName = HomeIcon;
+    } else if (route.name === 'Camera') {
+      iconName = CameraIcon;
+    } else if (route.name === 'Galerie') {
+      iconName = GalleryIcon;
+    } else if (route.name === 'Paramètres') {
+      iconName = SettingsIcon;
+    }
+
+    // On retourne l'image avec le style approprié
+    return <Image source={iconName} style={[styles.icon, { tintColor: focused ? '#673ab7' : '#222' }]} />;
+  },
+  tabBarLabel: ({focused}) => {
+    let label;
+
+    if (route.name === 'Menu') {
+      label = 'Menu';
+    } else if (route.name === 'Camera') {
+      label = 'Camera';
+    } else if (route.name === 'Galerie') {
+      label = 'Galerie';
+    } else if (route.name === 'Paramètres') {
+      label = 'Paramètres';
+    }
+
+    return <Text style={[styles.label, { color: focused ? '#673ab7' : '#222' }]}>{label}</Text>;
+  },
+  tabBarStyle: styles.tabBar,
+  tabBarItemStyle: styles.tabBarItem,
+  tabBarLabelStyle: styles.tabBarLabel,
+});
+
+const Tab = createBottomTabNavigator();
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator screenOptions={screenOptions}>
+        <Tab.Screen name="Menu" component={HomeScreen} />
+        <Tab.Screen name="Camera" component={CameraScreen} />
+        <Tab.Screen name="Galerie" component={GalleryScreen} />
+        <Tab.Screen name="Paramètres" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+};
+
 const styles = StyleSheet.create({
-  container: {
+  screenContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  image: {
-    width: 400,
-    height: 200,
-    marginTop: 35, 
-    marginBottom: 35,
+  homeContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
   },
-  text: {
+  tabBar: {
+    position: 'absolute',
+    bottom: 5,
+    left: 20,
+    right: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    height: 40, // Réduire la hauteur de la barre du menu
+    backgroundColor: '#ffffff',
+    borderTopWidth: 0,
+    elevation: 5,
+  },
+  tabBarItem: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  tabBarLabel: {
+    marginTop: 5, // Espacement entre l'image et le titre
+  },
+  icon: {
+    width: 24, // Taille de l'icône ajustée
+    height: 24, // Taille de l'icône ajustée
+  },
+  label: {
+    fontSize: 12, // Taille de police ajustée
+    color: '#333',
+  },
+  headerText: {
     fontSize: 28,
-    fontFamily: 'Roboto',
+    fontWeight: 'bold',
+    color: 'black',
+    textShadowColor: '#999',
+    textShadowOffset: {width: 1, height: 1},
+    textShadowRadius: 2,
+    marginBottom: 20, // Espacement entre le titre et l'image
+  },
+  headerImage: {
+    width: 400, // Largeur de l'image ajustée
+    height: 200, // Hauteur de l'image ajustée
   },
 });
-
-// Composant pour l'écran Galerie
-const GalerieScreen = () => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-  </View>
-);
-
-// Composant principal de l'application
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
-        <Drawer.Screen name="Main" component={MainScreen} />
-        <Drawer.Screen name="Camera" component={CameraScreen} />
-        <Drawer.Screen name="Galerie" component={GalerieScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
-  );
-}
+export default App;
