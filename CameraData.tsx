@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
 // Fonction pour obtenir une température aléatoire entre 1 et 40 degrés Celsius
 const getRandomTemperature = () => {
@@ -57,33 +57,32 @@ const DataCamera = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
   },
   dataItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 5, // Réduire l'espacement entre les éléments
     backgroundColor: '#f0f0f0',
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    borderRadius: 10,
+    paddingVertical: 2, // Réduire l'espacement vertical
+    paddingHorizontal: 5, // Réduire l'espacement horizontal
+    borderRadius: 5,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 5,
   },
   label: {
     marginRight: 5,
-    fontSize: 12,
+    fontSize: 10, // Réduire la taille de police
     fontWeight: 'bold',
     color: '#333',
   },
   value: {
-    fontSize: 12,
+    fontSize: 10, // Réduire la taille de police
     color: '#666',
   },
 });
