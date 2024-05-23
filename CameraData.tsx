@@ -1,9 +1,10 @@
+// DataCamera.tsx
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 // Fonction pour obtenir une température aléatoire entre 1 et 40 degrés Celsius
 const getRandomTemperature = () => {
-  return Math.floor(Math.random() * 40) + 1;
+  return Math.floor(Math.random() * 100) + 1;
 };
 
 // Fonction pour obtenir un niveau de gaz aléatoire entre 0 et 100
@@ -13,7 +14,7 @@ const getRandomGas = () => {
 
 // Fonction pour obtenir une vitesse aléatoire entre 1 et 100 km/h
 const getRandomSpeed = () => {
-  return Math.floor(Math.random() * 100) + 1;
+  return Math.floor(Math.random() * 40) + 1;
 };
 
 const DataCamera = () => {
@@ -28,7 +29,7 @@ const DataCamera = () => {
       setTemperature(getRandomTemperature());
       setGas(getRandomGas());
       setSpeed(getRandomSpeed());
-    }, 2000); // Mettre à jour toutes les 2 secondes
+    }, 7000); // Mettre à jour toutes les 7 secondes
 
     // Nettoyage de l'intervalle lorsque le composant est démonté
     return () => clearInterval(interval);
