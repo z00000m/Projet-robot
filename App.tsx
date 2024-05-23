@@ -80,7 +80,7 @@ const screenOptions = ({ route }: ScreenOptionsProps): BottomTabNavigationOption
   },
   tabBarLabel: ({ focused }) => {
     let label;
-
+// Détermination de l'icône en fonction du nom de la route
     if (route.name === 'Menu') {
       label = 'Menu';
     } else if (route.name === 'Camera') {
@@ -90,7 +90,7 @@ const screenOptions = ({ route }: ScreenOptionsProps): BottomTabNavigationOption
     } else if (route.name === 'Données') {
       label = 'Données';
     }
-
+// On retourne le label avec le style approprié
     return <Text style={[styles.label, { color: focused ? '#673ab7' : '#222' }]}>{label}</Text>;
   },
   tabBarStyle: styles.tabBar, // Style de la barre de navigation
@@ -117,13 +117,11 @@ const App = () => {
 
 // Styles pour les composants
 const styles = StyleSheet.create({
-  // Style pour la vue principale
   screenContainer: {
     flex: 1, // Utilisation de tout l'espace disponible
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // Style pour la vue d'accueil
   homeContainer: {
     flex: 1,
     justifyContent: 'center', // Centrage vertical des éléments
@@ -149,7 +147,6 @@ const styles = StyleSheet.create({
   tabBarLabel: {
     marginTop: 15, // Espacement entre l'image et le titre
   },
-  // Style pour les icônes de la barre de navigation
   icon: {
     width: 24, // Taille de l'icône ajustée
     height: 24, // Taille de l'icône ajustée
@@ -160,7 +157,6 @@ const styles = StyleSheet.create({
     fontSize: 12, // Taille de police ajustée
     color: '#333',
   },
-  // Style pour le texte d'en-tête
   headerText: {
     fontSize: 28,
     fontWeight: 'bold',
@@ -176,5 +172,4 @@ const styles = StyleSheet.create({
     resizeMode: 'contain', // Assurez-vous que l'image s'adapte bien
   },
 });
-
 export default App;
