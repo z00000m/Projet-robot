@@ -8,15 +8,15 @@ const CameraInterface = () => {
   return (
     // Container principal contenant tous les éléments de l'interface de la caméra
     <View style={styles.container}>
-      {/* Affichage des données de la caméra dans le coin supérieur gauche */}
+      {/* Affichage des données de la caméra */}
       <View style={styles.topLeft}>
         <CameraData />
       </View>
-      {/* Contrôle de la direction de la caméra dans le coin inférieur gauche */}
+      {/* Contrôle de la direction de la caméra */}
       <View style={styles.bottomLeft}>
         <CameraDirection />
       </View>
-      {/* Contrôle de la caméra (zoom, capture, etc.) dans le coin inférieur droit */}
+      {/* Contrôle de la caméra */}
       <View style={styles.bottomRight}>
         <CameraControl />
       </View>
