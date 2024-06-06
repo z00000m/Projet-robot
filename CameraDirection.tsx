@@ -1,12 +1,17 @@
 import React from 'react';
-import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 
-type Direction = 'Monter' | 'Descendre' | 'Tourner à gauche' | 'Tourner Caméra droite';
+type Direction = 'Monter' | 'Descendre' | 'Tourner Caméra gauche' | 'Tourner Caméra droite';
 
 const CameraDirection = () => {
   const handleDirectionPress = (direction: Direction) => {
     console.log(`Bouton ${direction} pressé !`);
     // Logique pour contrôler la direction de la caméra du robot
+  };
+
+  const handleTakePhotoPress = () => {
+    console.log('Bouton "Prendre une photo" pressé !');
+    // Logique pour prendre une photo
   };
 
   return (
@@ -17,6 +22,11 @@ const CameraDirection = () => {
       <View style={styles.row}>
         <View style={styles.triangleContainer}>
           <TouchableOpacity onPress={() => handleDirectionPress('Tourner Caméra gauche')} style={[styles.triangle, styles.triangleLeft]} />
+        </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={handleTakePhotoPress} style={styles.stopButton}>
+            <View style={styles.innerCircle} />
+          </TouchableOpacity>
         </View>
         <View style={styles.triangleContainer}>
           <TouchableOpacity onPress={() => handleDirectionPress('Tourner Caméra droite')} style={[styles.triangle, styles.triangleRight]} />
@@ -37,6 +47,8 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
+    justifyContent: 'center', // Centrer les éléments horizontalement
+    alignItems: 'center', // Centrer les éléments verticalement
   },
   triangle: {
     width: 0,
@@ -70,7 +82,6 @@ const styles = StyleSheet.create({
     borderTopColor: 'transparent',
     borderBottomColor: 'transparent',
     width: 50, // Largeur fixe pour la flèche gauche
-    marginLeft: -30, // Ajustement de la marge gauche
   },
   triangleRight: {
     borderTopWidth: 20,
@@ -80,11 +91,32 @@ const styles = StyleSheet.create({
     borderTopColor: 'transparent',
     borderBottomColor: 'transparent',
     width: 50, // Largeur fixe pour la flèche droite
-    marginLeft: 60, // Ajustement de la marge gauche
   },
   triangleContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
     width: 50, // Largeur fixe pour chaque conteneur de flèche
   },
+  buttonContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 20, // Ajustement de la marge pour centrer le bouton
+  },
+  stopButton: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: 'blue',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  innerCircle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: 'white',
+  },
 });
+
 
 export default CameraDirection;
