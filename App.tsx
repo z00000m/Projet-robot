@@ -1,10 +1,10 @@
 // Importations des bibliothèques
 import React from 'react';
-import {StyleSheet, View, Image, Text} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
-import {RouteProp} from '@react-navigation/native';
-import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
+import { StyleSheet, View, Image, Text } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { RouteProp } from '@react-navigation/native';
+import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import CameraInterface from './CameraInterface.tsx';
 import CameraDataScreen from './CameraDataScreen.tsx';
 
@@ -13,11 +13,9 @@ const HomeIcon = require('./Home.png');
 const CameraIcon = require('./Camera.png');
 const GalleryIcon = require('./Galerie.png');
 const SettingsIcon = require('./Settings.png');
-const RobotImage = require('./Robot.png');
+const RobotImage = require('./Robot.png'); // Ajout de l'image Robot
 
 // Définition des composants pour chaque écran
-
-// Ecran d'accueil
 const HomeScreen = () => (
   <View style={styles.homeContainer}>
     <Text style={styles.headerText}>Robot de reconnaissance</Text>
@@ -25,21 +23,18 @@ const HomeScreen = () => (
   </View>
 );
 
-// Ecran Camera
 const CameraScreen = () => (
   <View style={styles.screenContainer}>
     <CameraInterface />
   </View>
 );
 
-// Ecran Galerie
 const GalleryScreen = () => (
   <View style={styles.screenContainer}>
     <Text>Vos Photos</Text>
   </View>
 );
 
-// Ecran Données
 const DataScreen = () => {
   return (
     <View style={styles.screenContainer}>
@@ -48,19 +43,16 @@ const DataScreen = () => {
   );
 };
 
-// Types pour les props de l'icône de la barre de navigation
 type TabBarIconProps = {
   focused: boolean;
   color: string;
   size: number;
 };
 
-// Types pour les options de navigation de la barre de navigation
 type ScreenOptionsProps = {
   route: RouteProp<Record<string, object | undefined>, string>;
 };
 
-// Options de navigation pour la barre de navigation
 const screenOptions = ({ route }: ScreenOptionsProps): BottomTabNavigationOptions => ({
   tabBarIcon: ({ focused }: TabBarIconProps) => {
     let iconName;
@@ -80,7 +72,7 @@ const screenOptions = ({ route }: ScreenOptionsProps): BottomTabNavigationOption
   },
   tabBarLabel: ({ focused }) => {
     let label;
-// Détermination de l'icône en fonction du nom de la route
+
     if (route.name === 'Menu') {
       label = 'Menu';
     } else if (route.name === 'Camera') {
@@ -90,18 +82,16 @@ const screenOptions = ({ route }: ScreenOptionsProps): BottomTabNavigationOption
     } else if (route.name === 'Données') {
       label = 'Données';
     }
-// On retourne le label avec le style approprié
+
     return <Text style={[styles.label, { color: focused ? '#673ab7' : '#222' }]}>{label}</Text>;
   },
-  tabBarStyle: styles.tabBar, // Style de la barre de navigation
-  tabBarItemStyle: styles.tabBarItem, // Style des éléments de la barre de navigation
-  tabBarLabelStyle: styles.tabBarLabel, // Style des labels de la barre de navigation
+  tabBarStyle: styles.tabBar,
+  tabBarItemStyle: styles.tabBarItem,
+  tabBarLabelStyle: styles.tabBarLabel,
 });
 
-// Création de la barre de navigation
 const Tab = createBottomTabNavigator();
 
-// Fonction principale de l'application
 const App = () => {
   return (
     <NavigationContainer>
