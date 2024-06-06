@@ -1,42 +1,37 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+// CameraDataScreen.tsx
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { getData } from './CameraData'; // Import the getData function
 
-// Supposons que CameraData génère des données sous forme d'objet
-const generateCameraData = () => {
-  // Cette fonction simule la génération de données de caméra aléatoires
-  return {
-    id: Math.random().toString(36).substr(2, 9),
-    temperature: Math.floor(Math.random() * 100) + 1,
-    gas: Math.floor(Math.random() * 100),
-    speed: Math.floor(Math.random() * 40) + 1,
-    timestamp: new Date().toISOString(),
-  };
+type CameraData = {
+  temperature: number;
+  gas: number;
+  speed: number;
 };
 
 const CameraDataScreen = () => {
-  const [cameraData, setCameraData] = useState<any[]>([]);
+  const [cameraData, setCameraData] = useState<CameraData[]>([]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const newData = generateCameraData();
+      const newData = getData();
       setCameraData((prevData) => [...prevData, newData]);
-    }, 7000); // Génère des données toutes les 5 secondes
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, []);
 
   return (
     <View style={styles.screenContainer}>
-      <Text style={styles.title}>Données de la Caméra</Text>
+      <Text style={styles.title}> Données de télémetries </Text>
       <FlatList
         data={cameraData}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.dataContainer}>
             <Text style={styles.dataText}>Température: {item.temperature} °C</Text>
-            <Text style={styles.dataText}>Gaz: {item.gas}</Text>
+            <Text style={styles.dataText}>CO2: {item.gas}</Text>
             <Text style={styles.dataText}>Vitesse: {item.speed} km/h</Text>
-            <Text style={styles.dataText}>Timestamp: {item.timestamp}</Text>
           </View>
         )}
       />
@@ -55,6 +50,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 16,
     textAlign: 'center',
+    textShadowColor: '#999',
+    textShadowOffset: {width: 1, height: 1},
+    textShadowRadius: 2,
   },
   dataContainer: {
     padding: 10,
