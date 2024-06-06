@@ -1,79 +1,58 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import websocket from './websocket'; // Import the WebSocket module
 
-// Définition des types de direction pour les boutons de contrôle
 type Direction = 'Avancer' | 'Reculer' | 'Gauche' | 'Droite';
 
-// Composant CameraControl pour contrôler la direction du robot et prendre des photos
-const CameraControl = () => {
-  // Fonction pour gérer l'appui sur les boutons de direction
-  const handleDirectionPress = (direction: Direction) => {
-    console.log(`Bouton ${direction} pressé !`);
-    // Logique pour contrôler le robot en fonction de la direction pressée
-  };
+const directions: Record<Direction | 'Stop', string> = {
+  Avancer: 'Z',
+  Reculer: 'S',
+  Gauche: 'Q',
+  Droite: 'D',
+  Stop: 'X',
+};
 
-  // Fonction pour gérer l'appui sur le bouton de prise de photo
-  const handleTakePhotoPress = () => {
-    console.log('Bouton "Prendre une photo" pressé !');
-    // Logique pour prendre une photo
+const CameraControl = () => {
+  const handleDirectionPress = (direction: Direction | 'Stop') => {
+    console.log(`Bouton ${direction} pressé !`);
+    const command = directions[direction];
+    websocket.sendCommand(command); // Send the corresponding character via WebSocket
   };
 
   return (
     <View style={styles.container}>
-      {/* Ligne pour le bouton "Avancer" */}
       <View style={styles.row}>
-        <TouchableOpacity
-          onPress={() => handleDirectionPress('Avancer')}
-          style={[styles.triangle, styles.triangleTop]}
-        />
+        <TouchableOpacity onPress={() => handleDirectionPress('Avancer')} style={[styles.triangle, styles.triangleTop]} />
       </View>
-      {/* Ligne pour les boutons "Gauche", "Prendre une photo" et "Droite" */}
       <View style={styles.row}>
         <View style={styles.triangleContainer}>
-          <TouchableOpacity
-            onPress={() => handleDirectionPress('Gauche')}
-            style={[styles.triangle, styles.triangleLeft]}
-          />
+          <TouchableOpacity onPress={() => handleDirectionPress('Gauche')} style={[styles.triangle, styles.triangleLeft]} />
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={handleTakePhotoPress}
-            style={styles.takePhotoButton}
-          >
+          <TouchableOpacity onPress={() => handleDirectionPress('Stop')} style={styles.stopButton}>
             <View style={styles.innerCircle} />
           </TouchableOpacity>
         </View>
         <View style={styles.triangleContainer}>
-          <TouchableOpacity
-            onPress={() => handleDirectionPress('Droite')}
-            style={[styles.triangle, styles.triangleRight]}
-          />
+          <TouchableOpacity onPress={() => handleDirectionPress('Droite')} style={[styles.triangle, styles.triangleRight]} />
         </View>
       </View>
-      {/* Ligne pour le bouton "Reculer" */}
       <View style={styles.row}>
-        <TouchableOpacity
-          onPress={() => handleDirectionPress('Reculer')}
-          style={[styles.triangle, styles.triangleBottom]}
-        />
+        <TouchableOpacity onPress={() => handleDirectionPress('Reculer')} style={[styles.triangle, styles.triangleBottom]} />
       </View>
     </View>
   );
 };
 
-// Styles pour les composants
 const styles = StyleSheet.create({
-  // Conteneur principal pour les boutons de contrôle
   container: {
     position: 'absolute',
-    bottom: 50, // Ajuster la position verticale selon vos préférences
-    left: 80, // Ajuster la position horizontale selon vos préférences
+    bottom: 50,
+    left: 80,
   },
-  // Style pour une ligne de boutons
   row: {
     flexDirection: 'row',
   },
-  // Style de base pour les triangles
   triangle: {
     width: 0,
     height: 0,
@@ -82,7 +61,6 @@ const styles = StyleSheet.create({
     borderLeftWidth: 25,
     borderRightWidth: 25,
   },
-  // Style pour le triangle "Avancer"
   triangleTop: {
     borderTopWidth: 0,
     borderBottomWidth: 25,
@@ -91,7 +69,6 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     marginHorizontal: 40,
   },
-  // Style pour le triangle "Reculer"
   triangleBottom: {
     borderTopWidth: 25,
     borderBottomWidth: 0,
@@ -100,7 +77,6 @@ const styles = StyleSheet.create({
     borderTopColor: 'black',
     marginHorizontal: 40,
   },
-  // Style pour le triangle "Gauche"
   triangleLeft: {
     borderTopWidth: 20,
     borderBottomWidth: 20,
@@ -108,10 +84,9 @@ const styles = StyleSheet.create({
     borderRightColor: 'black',
     borderTopColor: 'transparent',
     borderBottomColor: 'transparent',
-    width: 50, // Largeur fixe pour la flèche gauche
-    marginLeft: -30, // Ajustement de la marge gauche
+    width: 50,
+    marginLeft: -30,
   },
-  // Style pour le triangle "Droite"
   triangleRight: {
     borderTopWidth: 20,
     borderBottomWidth: 20,
@@ -119,28 +94,24 @@ const styles = StyleSheet.create({
     borderLeftColor: 'black',
     borderTopColor: 'transparent',
     borderBottomColor: 'transparent',
-    width: 50, // Largeur fixe pour la flèche droite
-    marginLeft: 30, // Ajustement de la marge gauche
+    width: 50,
+    marginLeft: 30,
   },
-  // Conteneur pour chaque flèche
   triangleContainer: {
-    width: 50, // Largeur fixe pour chaque conteneur de flèche
+    width: 50,
   },
-  // Conteneur pour le bouton de prise de photo
   buttonContainer: {
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // Style pour le bouton de prise de photo
-  takePhotoButton: {
+  stopButton: {
     width: 30,
     height: 30,
     borderRadius: 15,
-    backgroundColor: 'blue',
+    backgroundColor: 'red',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // Style pour le cercle interne du bouton de prise de photo
   innerCircle: {
     width: 20,
     height: 20,
